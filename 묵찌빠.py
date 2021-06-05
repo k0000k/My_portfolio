@@ -2,7 +2,6 @@ import sys
 import random
 import time
 
-
 def rps_compare(p_choice,c_choice):
     if p_choice==c_choice:
         print('\n가위바위보에서 비겼어요')
@@ -33,7 +32,6 @@ def 묵찌빠_compare(p_int묵찌빠,c_int묵찌빠):
 
 
     return 묵찌빠_result
-
 
 
 
