@@ -20,26 +20,12 @@ def rps_compare(p_choice,c_choice):
 
 
 
-def 정수변환(choice):
-    if choice=='가위' or choice=='찌':
-        _int=0
-    elif choice=='바위' or choice=='묵':
-        _int=1
-    elif choice=='보' or choice=='빠':
-        _int=2
-
-    return _int
-
-
-
 def 묵찌빠_compare(p_int묵찌빠,c_int묵찌빠):
-    p_int묵찌빠=정수변환(p_묵찌빠)
-    c_int묵찌빠=정수변환(c_묵찌빠)
 
-    if p_int묵찌빠==c_int묵찌빠:
+    if 묵찌빠_dict[p_묵찌빠]==묵찌빠_dict[c_묵찌빠]:
         묵찌빠_result='무'
         
-    elif (p_int묵찌빠-c_int묵찌빠)%3==1:
+    elif (묵찌빠_dict[p_묵찌빠]-묵찌빠_dict[c_묵찌빠])%3==1:
         묵찌빠_result='승'
         
     else:
@@ -51,8 +37,11 @@ def 묵찌빠_compare(p_int묵찌빠,c_int묵찌빠):
 
 
 
-rps=['가위','바위','보']
-묵찌빠=['찌','묵','빠']
+rps_dict={'가위':0, '바위':1, '보':2}
+rps=['가위', '바위', '보']
+
+묵찌빠_dict={'찌':0, '묵':1, '빠':2}
+묵찌빠=['찌', '묵', '빠']
 
 
 print('\n------묵찌빠 게임 시작------')
@@ -75,17 +64,15 @@ while True:
 
     print('\n당신은 %s를 선택했고 컴퓨터는 %s를 선택했습니다.'%(player,computer))
 
-    rps_player=정수변환(player)
-    rps_computer=정수변환(computer)
 
     time.sleep(1)
-    rps_result=rps_compare(rps_player,rps_computer)
+    rps_result=rps_compare(rps_dict[player],rps_dict[computer])
 
-        
     if rps_result=='무':
         time.sleep(0.5)
         print('가위바위보가 무승부네요! 다시!')
         continue
+    
     elif rps_result=='승' or rps_result=='패':
         while True:
             p_묵찌빠=input('\n묵찌빠 입력:')
@@ -114,4 +101,4 @@ while True:
 
             else:
                 rps_result=묵찌빠_result
-                
+
