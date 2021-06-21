@@ -17,6 +17,7 @@ def compare(p_choice,c_choice):
 
 
 
+
 rps_dict={'가위':0, '바위':1, '보':2}
 rps=['가위', '바위', '보']
 
@@ -38,6 +39,7 @@ while True:
         continue
     elif player=='-1':
         print('\n종료합니다.')
+        time.sleep(0.5)
         sys.exit()
 
     computer=random.choice(rps)
@@ -90,3 +92,8 @@ while True:
 
             else:
                 result=current_result
+
+                if current_result=='승':
+                    print('공격할 차례!!')
+                elif current_result=='패':
+                    print('방어할 차례!!')
